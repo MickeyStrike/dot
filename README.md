@@ -1,34 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# DOT
+Dibuat menggunakan NextJs 13.4.10
+## Langkah Untuk Memulai Mode Developer
 
-## Getting Started
+Di dalam project directory, kamu dapat menjalankan:
 
-First, run the development server:
+### `npm install`
+npm install untuk menginstall package yang digunakan pada apps ini.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+### `npm run dev`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+npm run dev untuk menjalankan app pada mode development.\
+Buka [http://localhost:3000](http://localhost:3000) untuk melihat di browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### `env`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+untuk env buat file .env lalu masukkan isinya sesuai dengan .env.example
 
-## Learn More
+### `error endpoint`
 
-To learn more about Next.js, take a look at the following resources:
+ketika mencoba endpoint gagal maka buka file frontend-services.ts di folder services lalu ubah url prod ke url local
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Online Akses
+Selain akses lokal atau mode developer kita juga dapat mengakses website ini secara online berikut merupakan linknya:
+[https://dot-beryl.vercel.app/](https://dot-beryl.vercel.app/)
