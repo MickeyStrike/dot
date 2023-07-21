@@ -163,7 +163,7 @@ const Modal:FC<IModal> = ({ setVisible, visible, titleModal, typeModal, selected
                           <label>Select Province</label>
                           <Select
                             value={selectedProvince}
-                            onChange={handleSelectedProvince}
+                            onChange={(x) => handleSelectedProvince(x as SingleValue<IDataProvince>)}
                             options={dataProvince}
                           />
                         </div>
@@ -171,7 +171,7 @@ const Modal:FC<IModal> = ({ setVisible, visible, titleModal, typeModal, selected
                           <label>Select City</label>
                           <Select
                             value={selectedCity}
-                            onChange={handleSelectedCity}
+                            onChange={(x) => handleSelectedCity(x as SingleValue<IDataProvince>)}
                             options={dataCity}
                           />
                         </div>
