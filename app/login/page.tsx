@@ -1,11 +1,12 @@
 "use client";
 
-import React, { FormEvent, useState } from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 import Input, { IOnChangeParams } from '../components/input'
 import Button from '../components/button';
 import Swal from 'sweetalert2'
 import { useRouter } from 'next/navigation'
 import { postLogin } from '@/services/frontend-services';
+import { useStoreContext } from '@/store';
 
 export interface DataForm {
   username: string,
@@ -14,6 +15,7 @@ export interface DataForm {
 
 export default function Login() {
 
+  const storeContext = useStoreContext()
   const router = useRouter()
 
   const [dataForm, setDataForm] = useState<DataForm>({
@@ -27,6 +29,9 @@ export default function Login() {
       const { data } = await postLogin(dataForm)
       console.log(data.message)
       if(data.message) {
+        storeContext.dispatch({
+          isLogin: true
+        })
         Swal.fire({
           title: 'Success!',
           text: 'Berhasil Login!',
@@ -49,6 +54,12 @@ export default function Login() {
   const changeInput = ({ name, value }: IOnChangeParams) => {
     setDataForm((prev) => ({ ...prev, ...{ [name]: value } }))
   }
+
+  useEffect(() => {
+    if (storeContext.state.isLogin) {
+      router.push('/products')
+    }
+  }, [storeContext.state.isLogin])
 
   return (
     <div className='mx-auto max-w-xl h-screen flex justify-center items-center'>

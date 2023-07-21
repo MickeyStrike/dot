@@ -9,9 +9,11 @@ import Header from '../components/header'
 import Button from '../components/button'
 import { useStoreContext } from '@/store'
 import Swal from 'sweetalert2'
+import { useRouter } from 'next/navigation'
 
 export default function Products() {
   const storeContext = useStoreContext()
+  const router = useRouter()
 
   const [visible, setVisible] = useState(false)
   const [typeModal, setTypeModal] = useState<'address' | 'invoice'>('address')
@@ -28,6 +30,12 @@ export default function Products() {
   useEffect(() => {
     init()
   }, [])
+
+  useEffect(() => {
+    if (!storeContext.state.isLogin) {
+      router.push('/login')
+    }
+  }, [storeContext.state.isLogin])
 
   const handleClick = (id: number) => {
     if (!storeContext.state.selectedProvince) {
